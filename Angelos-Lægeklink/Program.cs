@@ -9,15 +9,23 @@ Læge martin = new("Martin Jensen", "Radiologi", 22222222, 0);
 Læge Thomas = new("Thomas Olsen", "Kirurgi", 33333333, 0);
 Læge ole = new("Ole Nielsen", "Onkologi", 44444444, 0);
 
-List<Patient> patientListe = new List<Patient>();
+List<Patient> patientListe = new List<Patient>
+{
+
+};
 
 while (true)
 {
+    Patient patient = new();         //Skulle bruge et instance af Patient og læge class for at køre mine 2 abstact methods on den ene virtual.
+    Læge læge = new("", "", 0, 0); ;//ved godt det er lidt dumt men det virker. Kunne være rart med noget feedback om hvad jeg ellers kunne have gjordt her. (Vis du har tid, ved du har mange du skal rette)
+
     Console.Clear();
+    patient.Velkommen();
+    læge.Velkommen();
     Console.WriteLine("Menu:");
     Console.WriteLine("1. Registrer ny patient");
     Console.WriteLine("2. Hvem arbejder her");
-    Console.WriteLine("3. Mere om os");
+    Console.WriteLine("3. Se Patienter");
     Console.WriteLine("4. Afslut program");
 
     ConsoleKeyInfo valg = Console.ReadKey();
@@ -31,16 +39,18 @@ while (true)
             break;
 
         case ConsoleKey.D2:
-            Console.WriteLine("Se lægerne");
+            Console.WriteLine("Her er Lægern der Arbjder på Kliniken");
+            Console.WriteLine("------------------------------------------------------------------------------------");
             Console.WriteLine($"1. {peter.Navn}, Specialisering: {peter.Specialisering}, Telefon: {peter.Telefonnummer}, Antal Patienter: {peter.TildelPatient}");
             Console.WriteLine($"2. {martin.Navn}, Specialisering: {martin.Specialisering}, Telefon: {martin.Telefonnummer}, Antal Patienter: {martin.TildelPatient}");
             Console.WriteLine($"3. {Thomas.Navn}, Specialisering: {Thomas.Specialisering}, Telefon: {Thomas.Telefonnummer}, Antal Patienter: {Thomas.TildelPatient}");
             Console.WriteLine($"4. {ole.Navn}, Specialisering: {ole.Specialisering}, Telefon: {ole.Telefonnummer}, Antal Patienter: {ole.TildelPatient}");
+            Console.WriteLine("------------------------------------------------------------------------------------");
             break;
 
         case ConsoleKey.D3:
-            Console.WriteLine("Mere om os");
-            // Console.wrtiteline der fortæller noget om stedet
+            Console.WriteLine("Se Patienter");
+            patient.VisInfo(patientListe);
             break;
 
         case ConsoleKey.D4:
@@ -75,12 +85,13 @@ while (true)
     {
         bool forkertValg = true;
 
-        Console.WriteLine("TilVælg en læge\n");
-        Console.WriteLine($"1. {peter.Navn}, Specialisering: {peter.Specialisering}, Telefon: {peter.Telefonnummer}, Antal Patienter: {peter.TildelPatient}");
-        Console.WriteLine($"2. {martin.Navn}, Specialisering: {martin.Specialisering}, Telefon: {martin.Telefonnummer}, Antal Patienter: {martin.TildelPatient}");
-        Console.WriteLine($"3. {Thomas.Navn}, Specialisering: {Thomas.Specialisering}, Telefon: {Thomas.Telefonnummer}, Antal Patienter: {Thomas.TildelPatient}");
-        Console.WriteLine($"4. {ole.Navn}, Specialisering: {ole.Specialisering}, Telefon: {ole.Telefonnummer}, Antal Patienter: {ole.TildelPatient}");
-
+        Console.WriteLine("\nTilVælg en læge");
+        Console.WriteLine("------------------------------------------------------------------------------------");
+        Console.WriteLine($"Tryk 1 for: {peter.Navn}, Specialisering: {peter.Specialisering}, Telefon: {peter.Telefonnummer}, Antal Patienter: {peter.TildelPatient}");
+        Console.WriteLine($"Tryk 2 for: {martin.Navn}, Specialisering: {martin.Specialisering}, Telefon: {martin.Telefonnummer}, Antal Patienter: {martin.TildelPatient}");
+        Console.WriteLine($"Tryk 3 for: {Thomas.Navn}, Specialisering: {Thomas.Specialisering}, Telefon: {Thomas.Telefonnummer}, Antal Patienter: {Thomas.TildelPatient}");
+        Console.WriteLine($"Tryk 4 for: {ole.Navn}, Specialisering: {ole.Specialisering}, Telefon: {ole.Telefonnummer}, Antal Patienter: {ole.TildelPatient}");
+        Console.WriteLine("------------------------------------------------------------------------------------");
         while (forkertValg)
         {
 

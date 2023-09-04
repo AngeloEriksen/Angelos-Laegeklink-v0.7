@@ -19,7 +19,10 @@ namespace Angelos_Lægeklink.Objects
             Telefonnummer = telefonnummer;          
         }
 
-        // jeg ved ikke helt hvorfor jeg gør det, Men jeg blev bedt om det så nu har jeg gjordt det.
-        public abstract void MinAbstractTest(string test);
+        //Den skulle nok bare have ligget i patient class.
+        public virtual void VisInfo(List<Patient> patientListe) { }
+
+        // Kunne ikke få min method over til at virke som abstact, så nu lavet jeg bare en easy en her haha.
+        public abstract void Velkommen();
     }
 }

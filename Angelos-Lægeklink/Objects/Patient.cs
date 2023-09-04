@@ -11,18 +11,27 @@ namespace Angelos_Lægeklink.Objects
 
         public string TildeltLæge { get; set; }
 
-        //constructer er opsat sådan her, så jeg kan create en Patient object uden at tildele den argumenter
+        //constructer er opsat sådan her, så jeg kan create en Patient object uden at tildele den argumenter (Der er sikkert en bedre måde haha)
         public Patient(string tildeltlæge = "", string specialisering = "", string navn = "", int telefonnummer = 0) : base(navn, specialisering, telefonnummer)
         {
             TildeltLæge = tildeltlæge;
         }
-
-        public override void MinAbstractTest(string test)
+        public override void VisInfo(List<Patient> patientListe)
         {
-            if (TildeltLæge == "Kirurgi" && TildeltLæge == "Onkologi")
+
+            Console.WriteLine("Her er en liste af alle Patinter");
+            Console.WriteLine("--------------------------------");
+            foreach (Patient patient in patientListe)
             {
-                throw new Exception("Ugyldig kombination af læger for patienten.");
+                Console.WriteLine($"{patient.Navn}");
             }
+            Console.WriteLine("--------------------------------");
+        }
+
+        //
+        public override void Velkommen()
+        {
+            Console.WriteLine("Velkommen til Angelos Læge-Klinik");
         }
 
     }

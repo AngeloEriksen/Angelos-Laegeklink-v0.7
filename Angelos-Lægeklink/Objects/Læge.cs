@@ -11,30 +11,18 @@ namespace Angelos_Lægeklink.Objects
     {
 
         // Den her liste bliver brugt til at gemme patienter, der er tildelt til lægen.
-        public List<Patient> TildeltePatienter { get; } = new List<Patient>();
+        public List<Patient> TildeltePatienter { get; } = new List<Patient>(); // Den er på standby den her liste ved ikke helt om jeg skal bruge den.
 
         public int TildelPatient { get; set; }
         public Læge(string navn, string specialisering, int telefonnummer, int tildelPatient) : base(navn, specialisering, telefonnummer)
         {
             TildelPatient = tildelPatient;
         }
-        public override void MinAbstractTest(string test)
+
+
+        public override void Velkommen()
         {
-
-            try
-            {
-                // starter en try-catch, hvor jeg vil forsøge at udføre nogle operationer, der kan kaste undtagelser.
-
-                if (TildeltePatienter.Count >= 3)
-                {
-                    throw new Exception("En læge kan ikke have mere end 3 patienter.");
-                }
-
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Fejl: {ex.Message}");
-            }
+            Console.WriteLine("Du vil nu få nogle Valgmuligheder\n");
         }
     }
 }
